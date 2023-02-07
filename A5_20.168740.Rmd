@@ -1,0 +1,32 @@
+---
+title: "A5_Grenier_20168740"
+author: "Braeden Grenier"
+date: "2023-02-07"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+library(lubridate)
+library(tidyr)
+library(data.table)
+library(gridExtra)
+library(lmtest)
+library(MuMIn)
+library(MASS)
+```
+
+
+```{r}
+mdata = read.csv("C:/Users/bgren/Desktop/School/University/Fourth Year/Semester 2/BIOL 432/Assignment5/BIOL432Assignment5/measurements.csv")
+```
+
+```{r}
+mdata2 = mdata %>% 
+  mutate(Sp = gsub("(^[[:alpha:]])[[:alpha:]]*","(\\1)",mdata$OrganismList))
+mdata2
+```
