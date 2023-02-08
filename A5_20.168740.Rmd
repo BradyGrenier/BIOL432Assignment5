@@ -1,5 +1,5 @@
 ---
-title: "A5_Grenier_20168740"
+title: "A5_Grenier_Braeden_.csv"
 author: "Braeden Grenier"
 date: "2023-02-07"
 output: word_document
@@ -20,13 +20,30 @@ library(MuMIn)
 library(MASS)
 ```
 
+#1. Project Folder
+project folder is unable to sync with RStudio; unable to push or pull to fix it
 
+#2. Code for Each of the Following
+
+##1. Importing Measurements
 ```{r}
 mdata = read.csv("C:/Users/bgren/Desktop/School/University/Fourth Year/Semester 2/BIOL 432/Assignment5/BIOL432Assignment5/measurements.csv")
 ```
 
+##2. Making a New Abbreviated Column with GSUB
 ```{r}
 mdata2 = mdata %>% 
-  mutate(Sp = gsub("(^[[:alpha:]])[[:alpha:]]*","(\\1)",mdata$OrganismList))
+  mutate(Sp = gsub("(^[[:alpha:]])[[:alpha:]]*","\\1.",mdata$OrganismList))
 mdata2
 ```
+
+##3. New Dataset with Sp Column
+```{r}
+Sp = mdata2$Sp
+mdata2["OrganismList"] <- Sp
+mdata3 = dplyr::select(mdata2, -c(Sp))
+mdata3
+
+write.csv(mdata3, file = "MeasShort.csv")
+```
+
