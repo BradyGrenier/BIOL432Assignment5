@@ -1,5 +1,5 @@
 ---
-title: "A5_Grenier_Braeden_.csv"
+title: "A5_Grenier_Braeden.rmd"
 author: "Braeden Grenier"
 date: "2023-02-07"
 output: word_document
@@ -23,11 +23,17 @@ library(MASS)
 #1. Project Folder
 project folder is unable to sync with RStudio; unable to push or pull to fix it
 
+https://github.com/BradyGrenier/BIOL432Assignment5
+
+A new project Folder was made to help prevent future errors with this.
+
 #2. Code for Each of the Following
 
 ##1. Importing Measurements
 ```{r}
-mdata = read.csv("C:/Users/bgren/Desktop/School/University/Fourth Year/Semester 2/BIOL 432/Assignment5/BIOL432Assignment5/measurements.csv")
+test = read.csv("measurements.csv")
+
+mdata = read.csv("measurements.csv")
 ```
 
 ##2. Making a New Abbreviated Column with GSUB
@@ -45,5 +51,10 @@ mdata3 = dplyr::select(mdata2, -c(Sp))
 mdata3
 
 write.csv(mdata3, file = "MeasShort.csv")
+```
+
+## testing
+```{r}
+write.csv(test, file = "NEWTEST")
 ```
 
